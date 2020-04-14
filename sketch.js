@@ -62,8 +62,8 @@ function draw(){
             rect(113*r_w,i*r_w,r_w,r_w);
 
             for(let j=0; j<113; j++){
-                let index = j + j * 113;
-                //j + j * i 로 했을때 무늬가 생겼다.
+                let index = j + j * i;
+                //j + j * 113 is the correct index, but this makes patterns somehow
                 let c2 = fullyConnectedWeights_[index];
                 fill(255,0,255*c2);
                 rect(r_w*j,r_w*i,r_w,r_w);
