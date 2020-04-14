@@ -1,0 +1,49 @@
+body{
+	font-size: 14pt;
+	line-height: 20pt;
+}
+
+#modelState{
+	position: absolute;
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+}
+
+#inputText{
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+}
+
+#outputText{
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+}
+
+button{
+	border: none;
+	font-size: 14pt;
+	padding: 0px 0px 0px 0px;
+}
+
+button:hover {
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+}
+
+button:focus {
+	background: rgb(0,0,0);
+	color: rgb(255,255,255);
+	outline: none;
+}
+
+button:active {
+  	transform: translateY(3px);
+}
+
+#run_button{
+	margin-right: 5px;
+}
+
+#reset_button{
+	
+}
