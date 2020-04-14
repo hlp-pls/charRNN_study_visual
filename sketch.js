@@ -62,7 +62,7 @@ function draw(){
             rect(113*r_w,i*r_w,r_w,r_w);
 
             for(let j=0; j<113; j++){
-                let index = j + j * i;
+                let index = j + j * 113;
                 let c2 = fullyConnectedWeights_[index];
                 fill(255,0,255*c2);
                 rect(r_w*j,r_w*i,r_w,r_w);
