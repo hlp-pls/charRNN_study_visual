@@ -1,4 +1,4 @@
-const lstm = ml5.charRNN('models/edgar_allan_poe_edited', modelReady);
+const lstm = ml5.charRNN('models/edgar_allan_poe', modelReady);
 
 let inputText = "";
 let canvas;
@@ -42,7 +42,7 @@ function setup(){
     reset_button.mousePressed(resetModel);
 
     let cw = windowWidth-50;
-    r_w = cw/114;
+    r_w = cw/112;
     canvas = createCanvas(cw,r_w*(4+256));
 
     outputTextDom = createSpan('');
@@ -58,21 +58,20 @@ function draw(){
 
         for(let i=0; i<256; i++){
             let c = outputH_[0][i];
-            fill(255,255*c,0);
-            rect(113*r_w,i*r_w,r_w,r_w);
+            fill(255*c);
+            rect(111*r_w,i*r_w,r_w,r_w);
 
-            for(let j=0; j<113; j++){
-                let index = j + j * i;
-                //j + j * 113 is the correct index, but this makes patterns somehow
+            for(let j=0; j<111; j++){
+                let index = j + 111 * i;
                 let c2 = fullyConnectedWeights_[index];
-                fill(255,0,255*c2);
+                fill(255*c2);
                 rect(r_w*j,r_w*i,r_w,r_w);
             }
         }
 
         translate(0,256*r_w);
 
-        for(let i=0; i<113; i++){
+        for(let i=0; i<111; i++){
             let c = weightedResult_[0][i];
             fill(c*255);
             rect(i*r_w,0,r_w,r_w);
@@ -134,6 +133,7 @@ async function predict() {
     await lstm.feed(next.sample);
     //console.log(next.probabilities);
     probs_out = next.probabilities;
+    //console.log(probs_out);
     if(next.sample=="\n"){
         //console.log(next);
         outputTextDom.html("<br>",true);
